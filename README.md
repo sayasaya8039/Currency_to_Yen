@@ -14,40 +14,21 @@ Web上の通貨テキスト（$100、€50等）にマウスカーソルを合�
 - **モダンなサイト対応**: X(Twitter)、Grok等のReactアプリやWeb Componentsにも対応
 - **可愛らしいUI**: パステル水色系のデザイン、ダークモード対応
 
-## スクリーンショット
-
-通貨テキストにホバーすると、日本円でのツールチップが表示されます。
-
 ## インストール方法
 
-### 開発者モードでインストール
-
-1. このリポジトリをクローン
+1. このリポジトリをクローンまたはダウンロード
 
    ```bash
-   git clone https://github.com/YOUR_USERNAME/Currency_to_Yen.git
-   cd Currency_to_Yen
+   git clone https://github.com/sayasaya8039/Currency_to_Yen.git
    ```
 
-2. 依存関係をインストール
+2. Chromeで `chrome://extensions/` を開く
 
-   ```bash
-   npm install
-   ```
+3. 「デベロッパーモード」をON
 
-3. ビルド
+4. 「パッケージ化されていない拡張機能を読み込む」をクリック
 
-   ```bash
-   npm run build
-   ```
-
-4. Chromeで `chrome://extensions/` を開く
-
-5. 「デベロッパーモード」をON
-
-6. 「パッケージ化されていない拡張機能を読み込む」をクリック
-
-7. `dist` フォルダを選択
+5. ダウンロードした `Currency_to_Yen` フォルダを選択
 
 ## 使い方
 
@@ -61,55 +42,27 @@ Web上の通貨テキスト（$100、€50等）にマウスカーソルを合�
 
 - **ON/OFF切り替え**: 拡張機能の有効/無効を切り替え
 
-## 技術スタック
-
-| 項目 | 選定 |
-|------|------|
-| 言語 | TypeScript |
-| ビルドツール | webpack |
-| 為替API | [Frankfurter API](https://frankfurter.dev/) |
-| マニフェスト | Manifest V3 |
-
 ## プロジェクト構成
 
 ```text
 Currency_to_Yen/
-├── src/
-│   ├── manifest.json          # Chrome拡張マニフェスト
-│   ├── background/
-│   │   └── service-worker.ts  # API通信、キャッシュ管理
-│   ├── content/
-│   │   ├── index.ts           # エントリーポイント
-│   │   ├── currencyDetector.ts # 通貨検出ロジック
-│   │   ├── tooltip.ts         # ツールチップ表示
-│   │   └── styles.css         # スタイル
-│   ├── popup/
-│   │   ├── popup.html
-│   │   ├── popup.ts
-│   │   └── popup.css
-│   ├── types/
-│   │   └── currency.ts        # 型定義
-│   └── assets/                # アイコン
-├── dist/                      # ビルド出力
-├── package.json
-├── tsconfig.json
-└── webpack.config.js
-```
-
-## 開発コマンド
-
-```bash
-# 依存関係のインストール
-npm install
-
-# 開発ビルド（ウォッチモード）
-npm run dev
-
-# 本番ビルド
-npm run build
-
-# 型チェック
-npm run type-check
+├── manifest.json          # Chrome拡張マニフェスト (Manifest V3)
+├── assets/                # アイコン画像
+│   ├── icon-16.png
+│   ├── icon-32.png
+│   ├── icon-48.png
+│   ├── icon-128.png
+│   └── icon.svg
+├── background/
+│   └── service-worker.js  # API通信、キャッシュ管理
+├── content/
+│   ├── index.js           # コンテンツスクリプト
+│   └── styles.css         # ツールチップスタイル
+├── popup/
+│   ├── popup.html         # ポップアップUI
+│   ├── popup.js           # ポップアップロジック
+│   └── popup.css          # ポップアップスタイル
+└── README.md
 ```
 
 ## 対応通貨一覧
@@ -119,7 +72,7 @@ npm run type-check
 | USD | 米ドル | $ |
 | EUR | ユーロ | € |
 | GBP | 英ポンド | £ |
-| CNY | 中国元 | - |
+| CNY | 中国元 | ¥ |
 | KRW | 韓国ウォン | ₩ |
 | AUD | 豪ドル | AU$, A$ |
 | CAD | カナダドル | CA$, C$ |
@@ -131,6 +84,14 @@ npm run type-check
 | INR | インドルピー | ₹ |
 | PHP | フィリピンペソ | ₱ |
 | MYR | マレーシアリンギット | RM |
+
+## 技術仕様
+
+| 項目 | 内容 |
+|------|------|
+| マニフェスト | Manifest V3 |
+| 為替API | [Frankfurter API](https://frankfurter.dev/) |
+| キャッシュ | 1時間 |
 
 ## ライセンス
 
