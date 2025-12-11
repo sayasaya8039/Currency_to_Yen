@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build:*)",
+      "Bash(python scripts/create_icon.py:*)",
+      "Bash(git config:*)",
+      "Bash(git init:*)",
+      "Bash(dir:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(gh repo delete:*)"
+    ]
+  }
+}
