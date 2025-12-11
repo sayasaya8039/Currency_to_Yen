@@ -1,14 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm run build:*)",
-      "Bash(python scripts/create_icon.py:*)",
-      "Bash(git config:*)",
-      "Bash(git init:*)",
-      "Bash(dir:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)",
-      "Bash(gh repo delete:*)"
+      "Bash(git commit -m \"$(cat <<''EOF''\n[refactor] プロジェクト構造を再編成\n\n- TypeScriptソースコード（src/）を追加\n- ビルド設定（webpack, tsconfig）を追加\n- .gitignore、.claude設定を追加\n- distフォルダをCurrency_to_Yenフォルダに移動\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push:*)",
+      "Bash(git pull:*)"
     ]
   }
 }
